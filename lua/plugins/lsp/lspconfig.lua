@@ -93,6 +93,8 @@ return {
             -- ts/tsx/js/jsx
             ["tsserver"] = function()
                 lspconfig["tsserver"].setup({
+                    filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+                    cmd = { "typescript-language-server", "--stdio" },
                     commands = {
                         TSOrganizeImports = {
                             organize_imports,

@@ -12,11 +12,11 @@ return {
         mason.setup({})
         mason_lspconfig.setup({
             ensure_installed = {
-                "rust-analyzer",
-                "typescript-language-server",
-                "tailwind-language-server",
-                "prisma-language-server",
-                "eslint-lsp"
+                "rust_analyzer",
+                "tsserver",
+                "tailwindcss",
+                "prismals",
+                "eslint"
             },
         })
 

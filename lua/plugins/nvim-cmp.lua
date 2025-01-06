@@ -35,6 +35,7 @@ return {
             }),
 
             sources = cmp.config.sources({
+                { name = "codium" },  -- ai completions
                 { name = "nvim_lsp" },
                 { name = "luasnip" }, -- snippets
                 { name = "buffer" },  -- text within current buffer
