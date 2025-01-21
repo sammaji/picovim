@@ -1,5 +1,3 @@
--- lazy.nvim
-
 local settings = require("config.settings")
 
 return {

@@ -1,5 +1,6 @@
 local settings = {
-    hard_mode = true,
+    hard_mode = false,
+    auto_pairs = false,
     theme = {
         name = "kanagawa-wave",
         transparency = false,

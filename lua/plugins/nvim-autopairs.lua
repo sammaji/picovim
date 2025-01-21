@@ -1,3 +1,5 @@
+local settings = require("config.settings")
+
 return {
     'm4xshen/autoclose.nvim',
     opts = {
@@ -5,5 +7,6 @@ return {
         options = {
             auto_indent = true
         }
-    }
+    },
+    enabled = settings.auto_pairs,
 }

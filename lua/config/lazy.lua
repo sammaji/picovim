@@ -21,6 +21,8 @@ require("lazy").setup({
         { import = "plugins" },
         { import = "plugins.lsp" },
         { import = "plugins.themes" },
+        { import = "plugins.core" },
+        { import = "plugins.ui" },
     },
     ui = { border = "rounded" },
     checker = { enabled = true },
