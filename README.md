@@ -1,4 +1,4 @@
-# boomer.nvim
+# pico - my vim and neovim conf
 nvim config for boomers.
 
 ## screenshots
