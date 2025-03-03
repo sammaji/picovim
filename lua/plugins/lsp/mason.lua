@@ -13,7 +13,7 @@ return {
         mason_lspconfig.setup({
             ensure_installed = {
                 "rust_analyzer",
-                "tsserver",
+                "ts_ls",
                 "tailwindcss",
                 "prismals",
                 "eslint"

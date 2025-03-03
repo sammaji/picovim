@@ -52,6 +52,17 @@ return {
             end,
         })
 
+
+        for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+            local default_diagnostic_handler = vim.lsp.handlers[method]
+            vim.lsp.handlers[method] = function(err, result, context, config)
+                if err ~= nil and err.code == -32802 then
+                    return
+                end
+                return default_diagnostic_handler(err, result, context, config)
+            end
+        end
+
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
         local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -91,8 +102,8 @@ return {
 
             -- web
             -- ts/tsx/js/jsx
-            ["tsserver"] = function()
-                lspconfig["tsserver"].setup({
+            ["ts_ls"] = function()
+                lspconfig["ts_ls"].setup({
                     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
                     cmd = { "typescript-language-server", "--stdio" },
                     commands = {
