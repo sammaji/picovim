@@ -7,6 +7,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
+        -- i use neovim to browse man pages
+        for _, arg in ipairs(vim.v.argv) do
+            if arg == "+Man!" then
+                return
+            end
+        end
         if vim.fn.argc() == 0 then
             vim.defer_fn(function()
                 vim.cmd("Autosession search")

@@ -8,8 +8,8 @@ return {
         "html"
     },
     opts = {
-        enable_close = true,
-        enable_rename = true,
-        enable_close_on_slash = false
+        enable_close = false,         -- Auto close tags
+        enable_rename = true,         -- Auto rename pairs of tags
+        enable_close_on_slash = false -- Auto close on trailing </
     }
 }
