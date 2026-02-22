@@ -42,3 +42,5 @@ vim.api.nvim_create_user_command(
     end,
     { desc = "Disable treesitter (useful for large files.)" }
 )
+
+vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Open parent directory" })

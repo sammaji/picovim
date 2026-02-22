@@ -2,7 +2,7 @@ local settings = {
     hard_mode = false,
     auto_pairs = false,
     theme = {
-        name = "kanagawa-wave",
+        name = "onedark",
         transparency = false,
         dimInactive = true, -- dims inactive window (if available)
     },
