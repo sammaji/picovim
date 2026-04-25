@@ -1,5 +1,8 @@
 # pico - my vim and neovim conf
-nvim config for boomers.
+
+simple minimal vim and neovim config
+
+my current theme is everforest
 
 ## screenshots
 ![kanagawa](https://github.com/user-attachments/assets/ff1693d6-d784-44a6-a7b2-dc6becee5efc)

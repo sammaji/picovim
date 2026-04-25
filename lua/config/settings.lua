@@ -1,14 +1,14 @@
 local settings = {
-    hard_mode = false,
-    auto_pairs = false,
-    theme = {
-        name = "onedark",
-        transparency = false,
-        dimInactive = true, -- dims inactive window (if available)
-    },
-    workspace = {
-        disable_neovim_syntax_features = false, -- disable neovim syntax feature (if you are working with large files.)
-    },
+	hard_mode = false,
+	auto_pairs = false,
+	theme = {
+		name = "onedark",
+		transparency = false,
+		dimInactive = true, -- dims inactive window (if available)
+	},
+	workspace = {
+		disable_neovim_syntax_features = false, -- disable neovim syntax feature (if you are working with large files.)
+	},
 }
 
 return settings
