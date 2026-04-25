@@ -73,4 +73,26 @@ return {
 			}
 		end,
 	},
+	-- === markdown extensions === --
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+		config = function()
+			vim.g.mkdp_auto_start = 0 -- Don't open browser immediately
+			vim.g.mkdp_auto_close = 1 -- Close browser when buffer is closed
+			vim.g.mkdp_refresh_slow = 0 -- Refresh as you type (0 = real-time)
+			vim.g.mkdp_theme = "dark" -- Use dark mode in the browser
+			vim.g.mkdp_browser = ""
+			vim.g.mkdp_port = "8888"
+		end,
+	},
+	-- === fzf === --
+	{
+		"junegunn/fzf.vim",
+		dependencies = { "junegunn/fzf" },
+	},
 }

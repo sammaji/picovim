@@ -100,6 +100,13 @@ return {
 				end,
 				desc = "Toggle gemini cli",
 			},
+			{
+				"<leader>as",
+				function()
+					require("sidekick.cli").toggle({ name = "opencode", focus = true })
+				end,
+				desc = "Toggle opencode cli",
+			},
 		},
 	},
 }

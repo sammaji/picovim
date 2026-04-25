@@ -41,7 +41,10 @@ return {
 					hide_dotfiles = false,
 					hide_gitignored = false,
 				},
+				hijack_netrw_behavior = "open_current",
 			},
+
+			open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
 
 			default_component_configs = {
 				indent = {
@@ -55,6 +58,17 @@ return {
 						staged = "",
 						conflict = "",
 					},
+				},
+			},
+
+			event_handlers = {
+				{
+					event = "neo_tree_buffer_enter",
+					handler = function()
+						-- enable column numbers
+						vim.opt_local.number = true
+						vim.opt_local.relativenumber = true
+					end,
 				},
 			},
 
