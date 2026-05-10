@@ -2,7 +2,21 @@
 
 simple minimal vim and neovim config
 
-my current theme is everforest
+## setup
+
+make sure you have neovim `0.10+` and `git` installed. then run the following commands:
+
+```bash
+git clone https://github.com/sammaji/picovim ~/.config/nvim
+```
+
+then run `:LazyInstall` to install all the plugins.
+
+that's it ^^
+
+## theme
+
+use `:Themery` to switch themes (my current theme is everforest).
 
 ## screenshots
 ![kanagawa](https://github.com/user-attachments/assets/ff1693d6-d784-44a6-a7b2-dc6becee5efc)

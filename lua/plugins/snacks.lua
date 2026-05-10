@@ -1,3 +1,5 @@
+local utils = require("lib.utils")
+
 -- @module 'snacks'
 return {
 	"folke/snacks.nvim",
@@ -123,8 +125,9 @@ return {
 		{
 			"<leader>fog",
 			function()
-				local file_path = vim.fn.expand("%:.")
-				local line_num = vim.api.nvim_win_get_cursor(0)[1]
+				local lineno = vim.api.nvim_win_get_cursor(0)[1]
+				local file_path, is_special = utils.get_relative_path()
+
 				local remote = vim.fn.systemlist("git config --get remote.origin.url")[1]
 				if not remote or remote == "" then
 					print("No git remote found")
@@ -138,6 +141,12 @@ return {
 
 				-- detect the trunk branch (main, master, or custom)
 				local trunk = vim.fn.systemlist("git symbolic-ref refs/remotes/origin/HEAD --short")[1]
+
+				-- if graphite exists, use graphite's trunk branch
+				if vim.fn.executable("gt") == 1 then
+					trunk = vim.fn.systemlist("gt trunk")[1]
+				end
+
 				if trunk then
 					trunk = trunk:gsub("origin/", "")
 				else
@@ -146,7 +155,11 @@ return {
 					trunk = #branches > 0 and branches[1]:gsub("%s*%*%s*", "") or "main"
 				end
 
-				local url = string.format("%s/blob/%s/%s#L%d", remote, trunk, file_path, line_num)
+				local url = string.format("%s/blob/%s/%s#L%d", remote, trunk, file_path, lineno)
+				if is_special then
+					url = string.format("%s/blob/%s/%s", remote, trunk, file_path)
+				end
+
 				if vim.fn.has("mac") == 1 then
 					vim.fn.jobstart({ "open", url })
 				elseif vim.fn.has("unix") == 1 then
@@ -156,7 +169,7 @@ return {
 				end
 				print("Opened: " .. url)
 			end,
-			desc = "Find only git files.",
+			desc = "Open a file in github.",
 		},
 		{ "<leader>fc", "<cmd>Telescope command_history<cr>", desc = "Search through command history." },
 		{ "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Find only git files." },
