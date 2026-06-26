@@ -34,7 +34,7 @@ return {
 		},
 	},
 	{
-		"sindrets/diffview.nvim",
+		"dlyongemallo/diffview.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons", -- optional, for file icons
 		opts = function()
 			local diffview_actions = require("diffview.actions")
@@ -77,17 +77,16 @@ return {
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-		config = function()
+		ft = { "markdown", "mdx" },
+		build = "npm install",
+		init = function()
 			vim.g.mkdp_auto_start = 0 -- Don't open browser immediately
 			vim.g.mkdp_auto_close = 1 -- Close browser when buffer is closed
 			vim.g.mkdp_refresh_slow = 0 -- Refresh as you type (0 = real-time)
 			vim.g.mkdp_theme = "dark" -- Use dark mode in the browser
 			vim.g.mkdp_browser = ""
 			vim.g.mkdp_port = "8888"
+			vim.fn["mkdp#util#install"]()
 		end,
 	},
 	-- === fzf === --
