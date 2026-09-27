@@ -304,6 +304,9 @@ return {
 					["gopls"] = function()
 						lspconfig["gopls"].setup({
 							capabilities = capabilities,
+							cmd_env = {
+								GO111MODULE = "on",
+							},
 							root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
 							settings = {
 								gopls = {
@@ -443,11 +446,13 @@ return {
 				go = { "goimports", "gofumpt" },
 				rust = { "rustfmt" },
 			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			},
+			format_on_save = function(bufnr)
+				local ft = vim.bo[bufnr].filetype
+				if ft == "typescript" or ft == "typescriptreact" then
+					return nil
+				end
+				return { lsp_fallback = true, async = false, timeout_ms = 1000 }
+			end,
 		},
 	},
 }

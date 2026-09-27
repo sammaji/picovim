@@ -75,20 +75,32 @@ return {
 	},
 	-- === markdown extensions === --
 	{
-		"iamcco/markdown-preview.nvim",
+		"sammaji/markdown-preview.nvim",
+		name = "markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown", "mdx" },
-		build = "npm install",
-		init = function()
-			vim.g.mkdp_auto_start = 0 -- Don't open browser immediately
-			vim.g.mkdp_auto_close = 1 -- Close browser when buffer is closed
-			vim.g.mkdp_refresh_slow = 0 -- Refresh as you type (0 = real-time)
-			vim.g.mkdp_theme = "dark" -- Use dark mode in the browser
-			vim.g.mkdp_browser = ""
-			vim.g.mkdp_port = "8888"
-			vim.fn["mkdp#util#install"]()
-		end,
+		opts = {
+			auto_close = false, -- keep the page open when you leave the buffer
+			theme = "dark",
+			port = 8888,
+			filetypes = { "markdown", "mdx" },
+		},
 	},
+	-- for local testing
+	-- {
+	--
+	-- 	dir = "~/wksp/markdown-preview-nvim",
+	-- 	build = "cargo build --release",
+	-- 	name = "markdown-preview.nvim",
+	-- 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+	-- 	ft = { "markdown", "mdx" },
+	-- 	opts = {
+	-- 		auto_close = false, -- keep the page open when you leave the buffer
+	-- 		theme = "dark",
+	-- 		port = 8888,
+	-- 		filetypes = { "markdown", "mdx" },
+	-- 	},
+	-- },
 	-- === fzf === --
 	{
 		"junegunn/fzf.vim",
