@@ -5,6 +5,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
 		"nvim-telescope/telescope-ui-select.nvim",
+		"nvim-telescope/telescope-live-grep-args.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	config = function()
@@ -26,5 +27,6 @@ return {
 
 		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
+		telescope.load_extension("live_grep_args")
 	end,
 }

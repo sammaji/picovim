@@ -62,7 +62,13 @@ return {
 			desc = "Find files (incl. hidden, excl. .git)",
 		},
 		{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Find recent files" },
-		{ "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Search in files (incl. hidden, excl. .git)" },
+		{
+			"<leader>fs",
+			function()
+				require("telescope").extensions.live_grep_args.live_grep_args()
+			end,
+			desc = "Search in files, supports 'pattern -- -g !*_test.go' to narrow files",
+		},
 		{
 			"<leader>fk",
 			function()

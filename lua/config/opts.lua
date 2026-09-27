@@ -33,6 +33,10 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.sessionoptions = "localoptions"
 
+if vim.env.GO111MODULE == nil or vim.env.GO111MODULE == "" or vim.env.GO111MODULE == "auto" then
+	vim.env.GO111MODULE = "on"
+end
+
 -- disable vim bindings check
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
