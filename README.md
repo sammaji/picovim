@@ -4,6 +4,22 @@ simple minimal vim and neovim config
 
 ## setup
 
+### quick install (linux)
+
+make sure you have `curl` and `git` installed. then run:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/sammaji/picovim/main/install.sh | bash
+```
+
+this installs the latest neovim release (if nvim isn't already installed), clones the config into `~/.config/nvim` and installs all the plugins. to install a specific neovim version instead:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/sammaji/picovim/main/install.sh | bash -s -- --version 0.11.4
+```
+
+### manual install
+
 make sure you have neovim `0.10+` and `git` installed. then run the following commands:
 
 ```bash
